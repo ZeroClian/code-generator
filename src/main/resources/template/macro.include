@@ -1,0 +1,32 @@
+<#-- 本文件包含一些公共的函数,本文件会被其它模板自动include -->
+<#-- 参考: https://freemarker.apache.org/docs/ref_builtins_string.html -->
+
+<#assign dollar = '$'>
+
+<#-- 将value变成jsp el表达式,主要由于FreeMarker生成表达式不方便 -->
+<#macro jspEl value>${r"${"}${value}}</#macro>
+
+<#macro generateField column>
+    private ${column.simpleJavaType} ${column.columnNameLower?replace('^is', '', 'r')?uncap_first};
+</#macro>
+
+<#macro generateVoFields table>
+<#list table.columns as column>
+<#if column.columnNameLower!='createTime' && column.columnNameLower!='updateTime' && column.columnNameLower!='organizationId' && column.columnNameLower!='tenantId'>
+    /**
+     * ${column.columnAlias}
+     */
+    <@generateField column/>
+
+</#if>
+</#list>
+</#macro>
+
+<#macro generateValid column><#if !column.nullable && column.simpleJavaType!='String'>    @NotNull
+</#if><#if !column.nullable && column.simpleJavaType=='String'>    @NotEmpty
+</#if></#macro>
+
+<#macro generateValidField column>
+    <@generateValid column/>
+    private ${column.simpleJavaType} ${column.columnNameLower?replace('^is', '', 'r')?uncap_first};
+</#macro>
