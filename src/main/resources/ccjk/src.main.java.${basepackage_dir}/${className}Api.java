@@ -65,14 +65,14 @@ public class ${className}Api implements CrudApi {
      */
     public void getList(@NotNull Context context){
         Integer from = context.queryParamAsClass("from", Integer.class)
-        .check(it -> it <= 10, "from 必须小于等于 10")
+        .check(it -> it > 0, "from 必须大于 0")
         .get();
         Integer size = context.queryParamAsClass("size", Integer.class)
         .check(it -> it >= 10, "size 必须大于或等于 10")
         .get();
         SqlBuilder sql = new SqlBuilder();
         sql.from("${className}").limit(from, size);
-        List<${className}> list = service.getList(sql);
+        List<${className}> list = ${classNameFirstLower}Service.getList(sql);
         context.json(list);
     }
 
