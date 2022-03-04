@@ -29,7 +29,7 @@ public class ${className}Service extend BaseResourceService<Integer, ${className
 
     @Override
     public void save(${className} ${classNameFirstLower}) {
-        resource.createdAt = LocalDateTime.now();
+        ${classNameFirstLower}.createdAt = LocalDateTime.now();
         super.save(${classNameFirstLower});
     }
 
