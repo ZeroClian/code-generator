@@ -1,0 +1,184 @@
+<#assign className=table.className>
+<#assign classNameFirstLower=className?uncap_first>
+<#assign classNameUnder=classNameFirstLower?replace('([A-Z])', '_$1', 'r')?lower_case >
+{
+"info": {
+"name": "${table.remarks?replace(';', '', 'r')?trim}",
+"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+},
+"item": [
+{
+"name": "创建${table.remarks?replace(';', '', 'r')?trim}",
+"request": {
+"method": "POST",
+"header": [],
+"body": {
+"mode": "raw",
+"raw": "",
+"options": {
+"raw": {
+"language": "json"
+}
+}
+},
+"url": {
+"raw": "127.0.0.1:8800/api/${classNameUnder}s",
+"host": [
+"127",
+"0",
+"0",
+"1"
+],
+"port": "8800",
+"path": [
+"api",
+"${classNameUnder}s"
+]
+}
+},
+"response": []
+},
+{
+"name": "获取${table.remarks?replace(';', '', 'r')?trim}",
+"protocolProfileBehavior": {
+"disableBodyPruning": true
+},
+"request": {
+"method": "GET",
+"header": [],
+"body": {
+"mode": "raw",
+"raw": "",
+"options": {
+"raw": {
+"language": "json"
+}
+}
+},
+"url": {
+"raw": "127.0.0.1:8800/api/${classNameUnder}s/1",
+"host": [
+"127",
+"0",
+"0",
+"1"
+],
+"port": "8800",
+"path": [
+"api",
+"${classNameUnder}s",
+"1"
+]
+}
+},
+"response": []
+},
+{
+"name": "删除${table.remarks?replace(';', '', 'r')?trim}",
+"request": {
+"method": "DELETE",
+"header": [],
+"body": {
+"mode": "raw",
+"raw": "",
+"options": {
+"raw": {
+"language": "json"
+}
+}
+},
+"url": {
+"raw": "127.0.0.1:8800/api/${classNameUnder}s/1",
+"host": [
+"127",
+"0",
+"0",
+"1"
+],
+"port": "8800",
+"path": [
+"api",
+"${classNameUnder}s",
+"1"
+]
+}
+},
+"response": []
+},
+{
+"name": "修改${table.remarks?replace(';', '', 'r')?trim}",
+"request": {
+"method": "PATCH",
+"header": [],
+"body": {
+"mode": "raw",
+"raw": "",
+"options": {
+"raw": {
+"language": "json"
+}
+}
+},
+"url": {
+"raw": "127.0.0.1:8800/api/${classNameUnder}s",
+"host": [
+"127",
+"0",
+"0",
+"1"
+],
+"port": "8800",
+"path": [
+"api",
+"${classNameUnder}s"
+]
+}
+},
+"response": []
+},
+{
+"name": "获取所有${table.remarks?replace(';', '', 'r')?trim}",
+"protocolProfileBehavior": {
+"disableBodyPruning": true
+},
+"request": {
+"method": "GET",
+"header": [],
+"body": {
+"mode": "raw",
+"raw": "",
+"options": {
+"raw": {
+"language": "json"
+}
+}
+},
+"url": {
+"raw": "127.0.0.1:8800/api/${classNameUnder}s?from=0&size=10",
+"host": [
+"127",
+"0",
+"0",
+"1"
+],
+"port": "8800",
+"path": [
+"api",
+"${classNameUnder}s"
+],
+"query": [
+{
+"key": "from",
+"value": "0"
+},
+{
+"key": "size",
+"value": "10"
+}
+]
+}
+},
+"response": []
+}
+]
+}
