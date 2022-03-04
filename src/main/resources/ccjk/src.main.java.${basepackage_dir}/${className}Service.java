@@ -16,7 +16,7 @@ import java.util.List;
  * @version ${version}
  */
 @Service
-public class ${className}Service extent BaseResourceService<Integer, ${className}>{
+public class ${className}Service extend BaseResourceService<Integer, ${className}>{
 
     public ${className}Service(SqlteTemplate db) {
         super(db);
