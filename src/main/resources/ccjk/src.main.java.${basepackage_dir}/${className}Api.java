@@ -32,7 +32,7 @@ public class ${className}Api implements CrudApi {
     @Override
     public void create(@NotNull Context context){
         ${className} ${classNameFirstLower} = context.bodyAsClass(${className}.class);
-        ValidationUtil.validate(${classNameFirstLower})
+        ValidationUtil.validate(${classNameFirstLower});
         ${classNameFirstLower}Service.save(${classNameFirstLower});
         context.json(${classNameFirstLower});
     }
@@ -44,9 +44,9 @@ public class ${className}Api implements CrudApi {
     @Transactional
     public void update(@NotNull Context context){
         ${className} update = context.bodyAsClass(${className}.class);
-        ValidationUtil.validate(update)
+        ValidationUtil.validate(update);
         ${className} ${classNameFirstLower} = ${classNameFirstLower}Service.mustGet(update.id);
-        update.id = ${classNameFirstLower}.id
+        update.id = ${classNameFirstLower}.id;
         ${classNameFirstLower}Service.update(update);
         context.json(ApiMessage.OK);
     }
