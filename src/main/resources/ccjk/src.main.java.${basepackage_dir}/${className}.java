@@ -22,6 +22,7 @@ public class ${className} implements Resource {
 	/**
 	 * ${column.columnAlias}<#if column.defaultValue!='null'>, 默认值为${column.defaultValue}</#if><#if !column.nullable>, 非空</#if>, ${column.sqlTypeName}
 	 */
+	<#if column.pk>@Id(generate = true)</#if>
 	<#if enableColumnAnnotation=='true'>@Column(name = "${column.sqlName}")</#if>
 	public ${column.simpleJavaType} ${column.columnNameLower?replace('^is', '', 'r')?uncap_first};
 
