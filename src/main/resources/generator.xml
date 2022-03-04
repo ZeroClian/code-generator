@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+
+    <entry key="version">1.0.0</entry>
+    <entry key="author">ZeroClian</entry>
+
+    <!--  mybatis:mybatis-template jpa:template  -->
+    <!--    <entry key="templatePath">template</entry>-->
+    <entry key="templatePath">ccjk</entry>
+
+    <!-- service配置 -->
+    <entry key="servicePackage">management</entry>
+    <entry key="servicePrefix">Jpa</entry>
+    <entry key="serviceSuffix">Manager</entry>
+
+    <!-- dao配置 -->
+    <entry key="daoPackage">repository</entry>
+    <entry key="enableColumnAnnotation">true</entry>
+
+    <!-- 模板字符串参考: https://freemarker.apache.org/docs/ref_builtins_string.html	-->
+
+    <!--  sql类型映射, 优先级更高  -->
+    <entry key="sql_typeMapping.DATE">java.time.LocalDate</entry>
+    <entry key="sql_typeMapping.TINYINT">java.lang.Boolean</entry>
+    <!-- jdbc类型至java类型映射  -->
+    <entry key="java_typeMapping.java.sql.Timestamp">java.time.LocalDateTime</entry>
+    <entry key="java_typeMapping.java.sql.Date">java.time.LocalDateTime</entry>
+    <entry key="java_typeMapping.java.sql.Time">String</entry>
+    <!--    <entry key="java_typeMapping.java.lang.Byte">Integer</entry>-->
+    <entry key="java_typeMapping.java.lang.Short">Integer</entry>
+    <entry key="java_typeMapping.java.math.BigDecimal">BigDecimal</entry>
+    <entry key="java_typeMapping.java.sql.Clob">String</entry>
+
+</properties>
