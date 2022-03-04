@@ -83,7 +83,7 @@ public class ${className}Api implements CrudApi {
     public void delete(@NotNull Context context){
         ${className} ${classNameFirstLower} = ${classNameFirstLower}Service.mustGet(Integer.valueOf(context.pathParam("id")));
         ${classNameFirstLower}Service.delete(${classNameFirstLower});
-        context.json(ApiMessage.Ok);
+        context.json(ApiMessage.OK);
     }
 
 }
