@@ -71,7 +71,7 @@ public class ${className}Api implements CrudApi {
         .check(it -> it >= 10, "size 必须大于或等于 10")
         .get();
         SqlBuilder sql = new SqlBuilder();
-        sql.from("${className}").limit(from, size);
+        sql.from("${classNameUnder}").limit(from, size);
         List<${className}> list = ${classNameFirstLower}Service.getList(sql);
         context.json(list);
     }
