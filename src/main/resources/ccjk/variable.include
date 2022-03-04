@@ -1,0 +1,1 @@
+<#assign service = table.className+'Manager'>

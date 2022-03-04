@@ -1,0 +1,12 @@
+<#-- 实体类工具方法 -->
+<#-- JpaEntity注解, 废弃 -->
+<#-- @Column(name = "${column.sqlName}"<@nullable column/><@length column/>, columnDefinition = "${column.sqlTypeName}") -->
+
+<#macro columnAnnotation column><#if enableColumnAnnotation=='true'>    @Column(name = "${column.sqlName}")
+</#if></#macro>
+
+<#macro nullable column><#if !column.nullable>, nullable = false</#if></#macro>
+
+<#macro length column><#if column.simpleJavaType!='Integer' && column.simpleJavaType!='Boolean'>, length = ${column.size}</#if></#macro>
+
+<#macro defaultValue column><#if column.defaultValue!='null'>, 默认值为${column.defaultValue}</#if></#macro>
