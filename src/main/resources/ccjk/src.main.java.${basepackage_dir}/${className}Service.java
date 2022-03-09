@@ -8,6 +8,8 @@ import com.ccjk.co3.BaseResourceService;
 import hwp.sqlte.SqlBuilder;
 import hwp.sqlte.SqlteTemplate;
 import org.springframework.stereotype.Service;
+
+import java.time.LocalDateTime;
 import java.util.List;
 
 /**
@@ -16,7 +18,7 @@ import java.util.List;
  * @version ${version}
  */
 @Service
-public class ${className}Service extend BaseResourceService<Integer, ${className}>{
+public class ${className}Service extends BaseResourceService<Integer, ${className}>{
 
     public ${className}Service(SqlteTemplate db) {
         super(db);
