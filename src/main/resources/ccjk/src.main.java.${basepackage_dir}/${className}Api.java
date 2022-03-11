@@ -47,8 +47,7 @@ public class ${className}Api implements CrudApi {
     public void update(@NotNull Context context){
         ${className} update = context.bodyAsClass(${className}.class);
         ValidationUtil.validate(update);
-        ${className} ${classNameFirstLower} = ${classNameFirstLower}Service.mustGet(update.id);
-        update.id = ${classNameFirstLower}.id;
+        ${classNameFirstLower}Service.mustGet(update.id);
         ${classNameFirstLower}Service.update(update);
         context.json(ApiMessage.OK);
     }

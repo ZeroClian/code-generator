@@ -5,5 +5,5 @@
 app.post("/api/${classNameUnder}s", ${classNameFirstLower}Api::create);
 app.patch("/api/${classNameUnder}s", ${classNameFirstLower}Api::update);
 app.get("/api/${classNameUnder}s", ${classNameFirstLower}Api::getList);
-app.get("/api/${classNameUnder}s/{id}", ${classNameFirstLower}Api::getOne);
-app.delete("/api/${classNameUnder}s/{id}", ${classNameFirstLower}Api::delete);
+app.get("/api/${classNameUnder}s/:id", ${classNameFirstLower}Api::getOne);
+app.delete("/api/${classNameUnder}s/:id", ${classNameFirstLower}Api::delete);
