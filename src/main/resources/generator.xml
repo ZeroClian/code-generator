@@ -3,7 +3,7 @@
 <properties>
 
     <entry key="version">1.0.0</entry>
-    <entry key="author">ZeroClian</entry>
+    <entry key="author">Justin</entry>
 
     <!--  mybatis:mybatis-template jpa:template  -->
     <!--    <entry key="templatePath">template</entry>-->

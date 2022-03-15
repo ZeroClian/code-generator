@@ -25,13 +25,13 @@ public class ZeroGenerator {
         GeneratorProperties.setProperty("jdbc_password", "co3@2021");
 
         // TODO 设置包名
-        GeneratorProperties.setProperty("basepackage", "com.ccjk.co3.approval");
+        GeneratorProperties.setProperty("basepackage", "com.ccjk.co3.salary");
 
         // TODO 设置表前缀
         GeneratorProperties.setProperty("tableRemovePrefixes", "");
 
         //TODO 填入要生成代码的表名称，多个表以 ',' 分开
-        String tables = "employee_change_approval";
+        String tables = "salary_user_cost";
 
         for (String table : tables.split(",")) {
             generatorFacade.generateByTable(table.trim());

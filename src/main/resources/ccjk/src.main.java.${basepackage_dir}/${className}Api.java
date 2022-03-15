@@ -8,6 +8,7 @@ import com.ccjk.co3.ApiMessage;
 import com.ccjk.co3.CrudApi;
 import com.ccjk.co3.util.ValidationUtil;
 import hwp.sqlte.SqlBuilder;
+import hwp.sqlte.Page;
 import io.javalin.http.Context;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
@@ -17,10 +18,11 @@ import java.util.List;
 /**
  * ${table.remarks?replace(';', '', 'r')?trim}接口
  * @author ${author}
- * @version ${version}
  */
 @Controller
 public class ${className}Api implements CrudApi {
+
+    private static final String TABLE_NAME = "${classNameUnder}";
 
     private final ${className}Service ${classNameFirstLower}Service;
 
@@ -43,7 +45,7 @@ public class ${className}Api implements CrudApi {
      * 更新${table.remarks?replace(';', '', 'r')?trim}
      */
     @Override
-    @Transactional
+    @Transactional(rollbackFor = Exception.class)
     public void update(@NotNull Context context){
         ${className} update = context.bodyAsClass(${className}.class);
         ValidationUtil.validate(update);
@@ -60,21 +62,30 @@ public class ${className}Api implements CrudApi {
         ${className} ${classNameFirstLower} = ${classNameFirstLower}Service.mustGet(Integer.valueOf(context.pathParam("id")));
         context.json(${classNameFirstLower});
     }
+    /**
+     * 普通查询
+     */
+    @Override
+    public void getList(@NotNull Context context){
+        SqlBuilder sql = new SqlBuilder();
+        //todo 自定义查询sql
+        sql.from(TABLE_NAME);
+        List<${className}> list = ${classNameFirstLower}Service.getList(sql);
+        context.json(list);
+    }
 
     /**
-     * 查询${table.remarks?replace(';', '', 'r')?trim}列表
+     * 分页查询${table.remarks?replace(';', '', 'r')?trim}列表
      */
-    public void getList(@NotNull Context context){
+    public void getPage(@NotNull Context context){
         Integer from = context.queryParamAsClass("from", Integer.class)
         .check(it -> it > 0, "from 必须大于 0")
         .get();
         Integer size = context.queryParamAsClass("size", Integer.class)
         .check(it -> it >= 10, "size 必须大于或等于 10")
         .get();
-        SqlBuilder sql = new SqlBuilder();
-        sql.from("${classNameUnder}").limit(from, size);
-        List<${className}> list = ${classNameFirstLower}Service.getList(sql);
-        context.json(list);
+        Page<${className}> page = ${classNameFirstLower}Service.getPage(from, size);
+        context.json(page);
     }
 
     /**

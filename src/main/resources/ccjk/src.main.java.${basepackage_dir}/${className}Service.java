@@ -5,6 +5,7 @@
 package ${basepackage};
 
 import com.ccjk.co3.BaseResourceService;
+import hwp.sqlte.Page;
 import hwp.sqlte.SqlBuilder;
 import hwp.sqlte.SqlteTemplate;
 import org.springframework.stereotype.Service;
@@ -15,7 +16,6 @@ import java.util.List;
 /**
  * ${table.remarks?replace(';', '', 'r')?trim}接口
  * @author ${author}
- * @version ${version}
  */
 @Service
 public class ${className}Service extends BaseResourceService<Integer, ${className}>{
@@ -31,7 +31,6 @@ public class ${className}Service extends BaseResourceService<Integer, ${classNam
 
     @Override
     public void save(${className} ${classNameFirstLower}) {
-        ${classNameFirstLower}.createdAt = LocalDateTime.now();
         super.save(${classNameFirstLower});
     }
 
@@ -46,10 +45,22 @@ public class ${className}Service extends BaseResourceService<Integer, ${classNam
     /**
      * 根据sql查询列表
      *
-     * @param sql 执行sql
+     * @param sql 查询语句
+     * @return  {@link ${className} ${className}}
      */
     public List<${className}> getList(SqlBuilder sql) {
         return db.query(sql).list(${className}.class);
+    }
+
+    /**
+     * 根据sql查询列表
+     *
+     * @param from 页数
+     * @param size 条数
+     * @return  {@link ${className} ${className}}
+     */
+    public Page<${className}> getPage(Integer from, Integer size) {
+        return db.queryPage(sql -> sql.from("${classNameUnder}").limit(from, size), ${className}::new);
     }
 
 }
