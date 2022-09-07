@@ -11,6 +11,8 @@ import java.time.LocalDateTime;
 import hwp.sqlte.Column;
 import hwp.sqlte.Table;
 
+import javax.validation.constraints.NotNull;
+
 
 /**
  * ${table.remarks?replace(';', '', 'r')?trim}实体类

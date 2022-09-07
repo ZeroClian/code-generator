@@ -20,6 +20,8 @@ import java.util.List;
 @Service
 public class ${className}Service extends BaseResourceService<Integer, ${className}>{
 
+private static final String TABLE_NAME = "${table.sqlName}";
+
     public ${className}Service(SqlteTemplate db) {
         super(db);
     }
